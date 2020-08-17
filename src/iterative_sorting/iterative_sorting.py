@@ -1,4 +1,4 @@
-# TO-DO: Complete the selection_sort() function below
+# O(n log n)
 def selection_sort(arr):
     for i in range(len(arr) - 1):
         nxt_min = i
@@ -50,10 +50,14 @@ What is the time and space complexity of the counting sort algorithm?
 '''
 
 def counting_sort(arr, maximum=None):
+    if len(arr) == 0:
+        return arr
     if maximum == None:
         maximum = max(arr) + 1
     buckets = [0] * maximum
     for i in arr:
+        if i < 0:
+            return 'Error, negative numbers not allowed in Count Sort'
         buckets[i] += 1
     arr = []
     for i in range(len(buckets)):
