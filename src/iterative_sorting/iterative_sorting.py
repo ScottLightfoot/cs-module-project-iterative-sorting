@@ -1,20 +1,18 @@
-# O(n log n)
+# # O(n log n)
+# def selection_sort(arr):
+#     for i in range(len(arr) - 1):
+#         nxt_min = i
+#         for j in range(i+1, len(arr)):
+#             if arr[nxt_min] > arr[j]:
+#                 nxt_min = j
+#         arr[i], arr[nxt_min] = arr[nxt_min], arr[i]
+
+#     return arr
+
 def selection_sort(arr):
     for i in range(len(arr) - 1):
-        nxt_min = i
-        for j in range(i+1, len(arr)):
-            if arr[nxt_min] > arr[j]:
-                nxt_min = j
-        arr[i], arr[nxt_min] = arr[nxt_min], arr[i]
-
-    return arr
-
-
-def selection_sort2(arr):
-    for i in range(len(arr) - 1):
-        rem_arr = arr[i+1:]
-        nxt_min = min(rem_arr)
-        nm_idx = rem_arr.index(nxt_min) + i + 1
+        nxt_min = min(arr[i+1:])
+        nm_idx = arr[i+1:].index(nxt_min) + i + 1
         if nxt_min < arr[i]:
             arr[i], arr[nm_idx] = arr[nm_idx], arr[i]
 
